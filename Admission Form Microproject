@@ -1,0 +1,141 @@
+from tkinter import *
+root = Tk()
+root.geometry('600x1000')
+root.title("Admission Form")
+
+l=["India","Pakistan","Bangladesh","Sri Lanka","Australia","United States","Afghanistan"]
+l1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
+l2=[1,2,3,4,5,6,7,8,9,10,11,12]
+l3=[1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001]
+
+fn=StringVar()
+mn=StringVar()
+ln=StringVar()
+dob=StringVar()
+
+f=Frame(root,bg='#80c1ff')
+f.place(relwidth=1,relheight=1)
+
+canvas=Canvas(f,bg='#80c1ff',height=1600,width=9000,scrollregion=(0,0,1600,900))
+
+label_0 = Label(canvas, text="Registration form",width=20,font=("bold", 20),bg='red')
+label_0.place(x=90,y=53)
+label_1 = Label(canvas, text="First Name",width=20,font=("bold", 10),bg='#80c1ff')
+label_1.place(x=80,y=100)
+entry_1 = Entry(canvas)
+entry_1.place(x=270,y=100)
+
+label_2 = Label(canvas, text="Middle Name",width=20,font=("bold", 10),bg='#80c1ff')
+label_2.place(x=80,y=130)
+entry_2 = Entry(canvas)
+entry_2.place(x=270,y=130)
+
+label_5 = Label(canvas, text="Last Name",width=20,font=("bold", 10),bg='#80c1ff')
+label_5.place(x=80,y=160)
+entry_4=Entry(canvas)
+entry_4.place(x=270,y=160)
+
+label_7 = Label(canvas, text="Date of Birth",width=20,font=("bold", 10),bg='#80c1ff')
+label_7.place(x=80,y=190)
+
+
+var2=StringVar()
+var2.set("Day")
+set2=OptionMenu(canvas,var2,*l1)
+set2.config(bg='#80c1ff',activebackground='#80c1ff')
+set2.place(x=270,y=190)
+
+
+var3=StringVar()
+var3.set("Month")
+set3=OptionMenu(canvas,var3,*l2)
+set3.config(bg='#80c1ff',activebackground='#80c1ff')
+set3.place(x=330,y=190)
+
+var4=StringVar()
+var4.set("Year")
+set4=OptionMenu(canvas,var4,*l3)
+set4.config(bg='#80c1ff',activebackground='#80c1ff')
+set4.place(x=390,y=190)
+
+label_3 = Label(f, text="Gender",width=20,font=("bold", 10),bg='#80c1ff')
+label_3.place(x=70,y=220)
+var = IntVar()
+Radiobutton(f, text="Male",padx = 5, variable=var, value=1,bg='#80c1ff',activebackground='#80c1ff').place(x=257,y=220)
+Radiobutton(f, text="Female",padx = 3, variable=var, value=2,bg='#80c1ff',activebackground='#80c1ff').place(x=310,y=220)
+Radiobutton(f, text="Others",padx = 20, variable=var, value=3,bg='#80c1ff',activebackground='#80c1ff').place(x=370,y=220)
+
+label_4 = Label(f, text="Contact Number",width=20,font=("bold", 10),bg='#80c1ff')
+label_4.place(x=76,y=250)
+entry_2 = Entry(f)
+entry_2.place(x=270,y=250)
+
+label_6 = Label(f, text="Permanent Address",width=20,font=("bold", 10),bg='#80c1ff')
+label_6.place(x=80,y=280)
+entry_3=Entry(f)
+entry_3.place(x=270,y=280)
+
+label_8= Label(f, text="Pin Code",width=20,font=("bold", 10),bg='#80c1ff')
+label_8.place(x=80,y=310)
+entry_3=Entry(f)
+entry_3.place(x=270,y=310)
+
+
+label_9= Label(f, text="Locality",width=20,font=("bold", 10),bg='#80c1ff')
+label_9.place(x=80,y=340)
+entry_7=Entry(f)
+entry_7.place(x=270,y=340)
+
+label_10= Label(f, text="City",width=20,font=("bold", 10),bg='#80c1ff')
+label_10.place(x=80,y=370)
+entry_8=Entry(f)
+entry_8.place(x=270,y=370)
+
+label_11= Label(f, text="District",width=20,font=("bold", 10),bg='#80c1ff')
+label_11.place(x=80,y=400)
+entry_9=Entry(f)
+entry_9.place(x=270,y=400)
+
+label_12= Label(f, text="Post Office",width=20,font=("bold", 10),bg='#80c1ff')
+label_12.place(x=80,y=430)
+entry_10=Entry(f)
+entry_10.place(x=270,y=430)
+
+label_13= Label(root, text="Police Station",width=20,font=("bold", 10),bg='#80c1ff')
+label_13.place(x=80,y=460)
+entry_11=Entry(root)
+entry_11.place(x=270,y=460)
+
+label_14= Label(f, text="Country",width=20,font=("bold", 10),bg='#80c1ff')
+label_14.place(x=80,y=490)
+
+var=StringVar()
+var.set("Select your country")
+set1=OptionMenu(f,var,*l)
+set1.config(bg='#80c1ff',activebackground='#80c1ff')
+set1.place(x=270,y=490)
+
+
+label_15= Label(f, text="State",width=20,font=("bold", 10),bg='#80c1ff')
+label_15.place(x=80,y=530)
+entry_13=Entry(f)
+entry_13.place(x=270,y=530)
+
+Button(f, text='Submit',width=20,bg='grey',fg='white').place(x=180,y=570)
+
+scroll1=Scrollbar(f,orient=HORIZONTAL)
+scroll1.pack(side=BOTTOM,fill=X)
+scroll1.config(command=canvas.xview)
+canvas.configure(xscrollcommand=scroll1.set)
+scroll2=Scrollbar(f,orient=VERTICAL)
+scroll2.pack(side=RIGHT,fill=Y)
+scroll2.config(command=canvas.yview)
+
+canvas.configure(yscrollcommand=scroll2.set)
+canvas.config(scrollregion=canvas.bbox("all"))
+
+canvas.pack(expand=True,fill=BOTH)
+
+
+
+root.mainloop()
